@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
-
+ 
 contract FundAndVote {
 
     uint idDigit = 16;
@@ -17,11 +17,12 @@ contract FundAndVote {
         bool greenLight;
         address creator;
         mapping(address => uint) investorToAmount;
+        mapping(address => bool) investorToVote;
     }
 
     uint[] public projectID;
     mapping(uint => Project) public idToProject;
-    mapping(uint => address[]) idToInvestors;
+    mapping(uint => address[]) public idToInvestors;
 
     function createProject(string memory _projectName, uint _fundNeeded, uint[] memory _milestones) public {
         uint ID = uint(keccak256(abi.encodePacked(_projectName))) % idModulus;
@@ -37,17 +38,16 @@ contract FundAndVote {
         idToProject[ID].creator = msg.sender;
     }
 
-    function investProject(uint _projectName, uint _amountInvest) public payable {
+    function investProject(string memory _projectName) public payable {
         uint ID = uint(keccak256(abi.encodePacked(_projectName))) % idModulus;
 
         // require that investor hasn't invested in this project before
         require(idToProject[ID].investorToAmount[msg.sender] == 0);
+        require(msg.value > 0);
 
-        idToProject[ID].fundAccumulated  += _amountInvest;
-        idToProject[ID].investorToAmount[msg.sender] = _amountInvest;
+        idToProject[ID].fundAccumulated  += msg.value;
+        idToProject[ID].investorToAmount[msg.sender] = msg.value;
         idToInvestors[ID].push(msg.sender);
-
-        // +send fund
 
         if (idToProject[ID].fundAccumulated >= idToProject[ID].fundNeeded) {
             idToProject[ID].greenLight = true;
@@ -55,16 +55,21 @@ contract FundAndVote {
         }
     }
 
-    function vote(uint _projectName, uint _voteChoice) public {
+    function vote(string memory _projectName, uint _voteChoice) public {
         uint ID = uint(keccak256(abi.encodePacked(_projectName))) % idModulus;
 
         // only allow investors of the project to vote
         require(idToProject[ID].investorToAmount[msg.sender] > 0);
 
+        // only allow each investor to vote once
+        require(idToProject[ID].investorToVote[msg.sender] == false);
+
         // vote can only be 0 or 1
         if (_voteChoice == 1) {
             idToProject[ID].thumbDown += 1;
         }
+
+        idToProject[ID].investorToVote[msg.sender] == true;
 
         // check if milestone has expired
     	if (block.timestamp >= idToProject[ID].startDate + idToProject[ID].milestones[idToProject[ID].currentMilestone]) {
@@ -104,6 +109,10 @@ contract FundAndVote {
             idToProject[_projectID].fundAccumulated -= amountPay;
         }
     }
-}
 
-// change: pass the whole project struct to functions instead of just the ID and have to look up everytime
+    // View functions
+    function viewProjectID() public view returns(uint[] memory) {
+        return projectID;
+    }
+
+}
