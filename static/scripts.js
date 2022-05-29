@@ -1,34 +1,36 @@
-async function loadWeb3() {
-    if (window.ethereum) {
-        w3 = new Web3(window.ethereum);
+import { contractAddress, ABI } from "./const.js";
+import { ethers } from "./ethers-5.6.esm.min.js"
+
+// Event listeners:
+const connectButton = document.querySelector(".connect_wallet");
+const createButton = document.querySelector("#create_button");
+connectButton.addEventListener("click", connectWallet);
+createButton.addEventListener("click", (e) => {e.preventDefault()});
+createButton.addEventListener("click", createProject);
+
+
+// Functions:
+async function connectWallet() {
+    if (typeof window.ethereum !== "undefined") {
+        await ethereum.request({ method: "eth_requestAccounts" });
     } else {
-        w3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+        console.log("Please install MetaMask");
     }
 }
 
-async function loadContract() {
-    let abi = [{'inputs': [{'internalType': 'string', 'name': '_projectName', 'type': 'string'}, {'internalType': 'uint256', 'name': '_fundNeeded', 'type': 'uint256'}, {'internalType': 'uint256[]', 'name': '_milestones', 'type': 'uint256[]'}], 'name': 'createProject', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'}, {'inputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}, {'internalType': 'uint256', 'name': '', 'type': 'uint256'}], 'name': 'idToInvestors', 'outputs': [{'internalType': 'address', 'name': '', 'type': 'address'}], 'stateMutability': 'view', 'type': 'function'}, {'inputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}], 'name': 'idToProject', 'outputs': [{'internalType': 'uint256', 'name': 'projectID', 'type': 'uint256'}, {'internalType': 'uint256', 'name': 'fundNeeded', 'type': 'uint256'}, {'internalType': 'uint256', 'name': 'fundAccumulated', 'type': 'uint256'}, {'internalType': 'uint256', 'name': 'currentMilestone', 'type': 'uint256'}, {'internalType': 'uint256', 'name': 'startDate', 'type': 'uint256'}, {'internalType': 'uint256', 'name': 'thumbDown', 'type': 'uint256'}, {'internalType': 'bool', 'name': 'greenLight', 'type': 'bool'}, {'internalType': 'address', 'name': 'creator', 'type': 'address'}], 'stateMutability': 'view', 'type': 'function'}, {'inputs': [{'internalType': 'string', 'name': '_projectName', 'type': 'string'}], 'name': 'investProject', 'outputs': [], 'stateMutability': 'payable', 'type': 'function'}, {'inputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}], 'name': 'projectID', 'outputs': [{'internalType': 'uint256', 'name': '', 'type': 'uint256'}], 'stateMutability': 'view', 'type': 'function'}, {'inputs': [], 'name': 'viewProjectID', 'outputs': [{'internalType': 'uint256[]', 'name': '', 'type': 'uint256[]'}], 'stateMutability': 'view', 'type': 'function'}, {'inputs': [{'internalType': 'string', 'name': '_projectName', 'type': 'string'}, {'internalType': 'uint256', 'name': '_voteChoice', 'type': 'uint256'}], 'name': 'vote', 'outputs': [], 'stateMutability': 'nonpayable', 'type': 'function'}]
-    let address = "0xb04C0C31a18a1012f1577fB06EAaD84Dbc5c3883";
-    return await new w3.eth.Contract(abi, address);
+async function createProject() {
+    const projectName = document.querySelector("#project_name").value;
+    const projectDescription = document.querySelector("#project_description").value;
+    const projectFunding = document.querySelector("#project_fund").value;
+    const projectMilestones = document.querySelector("#project_milestones").value;
+
+    if (typeof window.ethereum !== "undefined") {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, ABI, signer);
+        await contract.createProject(projectName, projectFunding, projectMilestones);
+
+    } else {
+        console.log("Please install MetaMask");
+    }
 }
-
-async function getCurrentAccount() {
-    let accounts = await w3.eth.getAccounts();
-    return accounts[0]
-}
-
-async function load() {
-    await loadWeb3();
-    let Web3Crowdfunding = await loadContract();
-
-    document.getElementById("create_button").addEventListener("click", async function() {
-        const account = await getCurrentAccount();
-        Web3Crowdfunding.methods.createProject(
-            document.getElementById("project_name"),
-            document.getElementById("project_fund"),
-            document.getElementById("project_milestones"),
-        ).send({from:account});
-    });
-}
-
-load()

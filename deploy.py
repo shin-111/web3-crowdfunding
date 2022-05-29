@@ -40,8 +40,8 @@ abi = compiled_sol["contracts"]["web3.0-crowdfunding.sol"]["FundAndVote"]["abi"]
 # Connect to Ganache
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 chain_id = 1337
-my_address = "0x25b2450c193c10b84c57DfA4DDe724C818A64E53"
-private_key = "0xe23b2a23dd76a79d818eb337506d11cdf601e7a52956cf0dfcabc2f6a9170f6b"
+my_address = "0x7043476B5103F749C53d39a976042a445a8DA117"
+private_key = "0x91a763e2713fbeda50c18487c7c4808ee9937227dd95c917ff6179064cb6559f"
 
 # Deploy the contract
 Web3Crowdfunding = w3.eth.contract(abi=abi, bytecode=bytecode)
