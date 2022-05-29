@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Web3.0 Crowdfunding</title>
+<title>W3Bstarter</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+</style>
 {% endblock %}
 
-
 {% block body %}
-
-<h1>This is an amazing title</h1>
+<div class="title_container">
+    <h1>CREATE YOUR PROJECT</h1>
+</div>
+<div class="form">
+    <form method="post">
+        <label for="project_name" class="field">
+            <span class="label-text">Project name:</span>
+            <input type="text" id="project_name" name="project_name"> 
+        </label>
+        <label for="project_description" class="field">
+            <span class="label-text">Project description:</span>
+            <textarea name="project_description" id="project_description"></textarea>
+        </label>
+        <label for="project_fund" class="field">
+            <span class="label-text">Funding needed:</span>
+            <input type="text" id="project_fund" name="project_fund">
+        </label>
+        <label for="project_milestones" class="field">
+            <span class="label-text">Milestones:</span>
+            <input type="text" id="project_milestones" name="project_milestones">
+        </label>
+        <label class="field">
+            <span></span>
+            <button type="submit" id="create_button">Create Project</button>
+        </label>
+    </form>
+</div>
 
 {% endblock %}

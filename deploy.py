@@ -1,5 +1,4 @@
 import json
-import os
 from solcx import compile_standard, install_solc
 from web3 import Web3
 from dotenv import load_dotenv
@@ -41,8 +40,8 @@ abi = compiled_sol["contracts"]["web3.0-crowdfunding.sol"]["FundAndVote"]["abi"]
 # Connect to Ganache
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 chain_id = 1337
-my_address = "0x0335704ce112462BE444BC3FD1839f3083a73C22"
-private_key = "0xd2d92b33e050a2bc380aaaed2de319b5c7aec7dff051fb456ac15084b6491b72"
+my_address = "0x25b2450c193c10b84c57DfA4DDe724C818A64E53"
+private_key = "0xe23b2a23dd76a79d818eb337506d11cdf601e7a52956cf0dfcabc2f6a9170f6b"
 
 # Deploy the contract
 Web3Crowdfunding = w3.eth.contract(abi=abi, bytecode=bytecode)
@@ -60,4 +59,5 @@ print("Deploying contract...")
 tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 print("Waiting for transaction to finish...")
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-print(f"Done! Contract deployed to {tx_receipt.contractAddress}")
+deployed_address = tx_receipt.contractAddress
+print(f"Done! Contract deployed to {deployed_address}")
