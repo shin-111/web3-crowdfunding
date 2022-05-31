@@ -13,7 +13,147 @@ body {
   background-color: #e03ca7;
 }
 
-.title_container {
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 2rem 10rem;
+}
+
+.nav .logo {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.nav nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+.nav nav button {
+  margin: 0 1rem;
+  font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  color: #e03ca7;
+  border: 0.05rem solid black;
+  font-size: 1rem;
+}
+
+.nav nav button:hover {
+  cursor: pointer;
+  border: 0.05rem solid white;
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70vh;
+}
+
+.hero h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+  color: black;
+}
+
+.hero p {
+  margin: 2rem 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.hero button {
+  margin: 0 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  background-color: white;
+  color: #e03ca7;
+  border: 0.05rem solid black;
+}
+
+.hero button:hover {
+  cursor: pointer;
+  border: 0.05rem solid white;
+}
+
+.featured_projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem 10rem;
+}
+
+.featured_projects .featured_project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  border: 0.1rem solid black;
+  background-color: white;
+  margin: 0 0.5rem;
+  padding: 1rem;
+}
+
+.featured_projects .featured_project img {
+  width: 100%;
+  height: auto;
+  border: 0.05rem solid black;
+}
+
+.featured_projects .featured_project h2 {
+  color: #e03ca7;
+}
+
+.featured_projects .featured_project p {
+  color: #e03ca7;
+}
+
+.create_new_project {
+  margin: 10rem 10rem;
+  padding: 2rem;
+  background-color: black;
+  border: 0.1rem solid white;
+}
+
+.create_new_project .title_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +168,7 @@ body {
           justify-content: center;
 }
 
-.title_container h1 {
+.create_new_project .title_container h1 {
   padding: 0;
   margin: 0;
   font-weight: bold;
@@ -36,7 +176,7 @@ body {
   color: white;
 }
 
-.form {
+.create_new_project .form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +189,7 @@ body {
           justify-content: center;
 }
 
-.form form {
+.create_new_project .form form {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: max-content 1fr;
@@ -60,33 +200,46 @@ body {
   width: 50%;
 }
 
-.form form .field {
+.create_new_project .form form .field {
   grid-column: span 2;
   display: contents;
 }
 
-.form form .field .label-text {
+.create_new_project .form form .field .label-text {
   text-align: right;
   font-weight: normal;
   color: white;
+  color: #e03ca7;
 }
 
-.form form .field input {
+.create_new_project .form form .field input {
   font-family: 'Roboto Mono', monospace;
   font-weight: normal;
+  color: white;
+  background-color: #e03ca7;
 }
 
-.form form .field textarea {
+.create_new_project .form form .field textarea {
   font-family: 'Roboto Mono', monospace;
   height: 15rem;
   font-weight: normal;
+  background-color: #e03ca7;
+  color: white;
 }
 
-.form form .field button {
+.create_new_project .form form .field button {
   font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  color: #e03ca7;
+  border: 0.05rem solid black;
+  font-size: 1rem;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  height: 3rem;
+}
+
+.create_new_project .form form .field button:hover {
+  cursor: pointer;
+  border: 0.05rem solid white;
 }
 /*# sourceMappingURL=style.css.map */
