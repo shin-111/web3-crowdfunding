@@ -3,13 +3,17 @@ import { contractAddress, ABI } from "./const.js";
 // Event listeners:
 const connectButton1 = document.querySelector(".connect_wallet_1");
 const connectButton2 = document.querySelector(".connect_wallet_2");
-
 const createButton = document.querySelector("#create_button");
+const fundButton = document.querySelector("#fund_button");
+
 connectButton1.addEventListener("click", connectWallet);
 connectButton2.addEventListener("click", connectWallet);
 
 createButton.addEventListener("click", (e) => {e.preventDefault()});
 createButton.addEventListener("click", createProject);
+
+fundButton.addEventListener("click", (e) => {e.preventDefault()});
+fundButton.addEventListener("click", fundProject);
 
 
 // Functions:
@@ -41,5 +45,19 @@ async function createProject() {
 
     } else {
         console.log("Please install MetaMask");
+    }
+}
+
+async function fundButton(projectName) {
+    let fundAmount = document.querySelector("#amount_to_fund").value;
+
+    if (typeof window.ethereum !== "undefinded") {
+        const web3 = new Web3(window.ethereum);
+        const walletAddress = await web3.eth.requestAccounts();
+        const my_address = walletAddress[0];
+        const contract = new web3.eth.Contract(ABI, contractAddress);
+        await contract.methods.investProject(projectName).send(
+            {from: my_address, value: web3.utils.toWei(fundAmount)}
+        );
     }
 }

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Fund project</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="nav">
+    <a class="logo" href="/">W3Bstarter</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/view">Projects</a>
+        <a href="/create">Create</a>
+        <button class="connect_wallet_1">Connect Wallet</button>
+    </nav>
+</div>
+
+<div class="hero">
+    <h1>    
+        Create Projects, Get Funded!&#128526;
+    </h1>
+    <p>
+        Transparent & Secured Web3 Crowdfunding 
+    </p>
+    <button class="connect_wallet_2">Connect Wallet</button>
+</div>
+
+<div class="project_to_fund">
+    <div class="project_banner_container">
+        <img src="" alt="" class="project_banner" />
+    </div>
+    <div class="project_details_container">
+        <div class="col_1">
+            <h2>This is the name of the project</h2>
+            <p>This is a super long and detailed description about the project</p>
+            <p>Project milestones</p>
+            <ol>
+                <li>Milestone 1</li>
+                <li>Milestone 2</li>
+                <li>Milestone 3</li>
+            </ol>
+        </div>
+        <div class="col_2">
+            <form method="post">
+                <label for="amount" class="field">
+                    <span class="label-text">Amount to Fund (ETH)</span>
+                    <input type="text" id="amount_to_fund" name="amount">
+                </label>
+                <label class="field">
+                    <span></span>
+                    <button type="submit" id="fund_button">Fund Project</button>
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="create_new_project">
+    <div class="title_container">
+        <h1>Create new project</h1>
+    </div>
+    <div class="form">
+        <form method="post">
+            <label for="project_name" class="field">
+                <span class="label-text">Project name:</span>
+                <input type="text" id="project_name" name="project_name"> 
+            </label>
+            <label for="project_description" class="field">
+                <span class="label-text">Project description:</span>
+                <textarea name="project_description" id="project_description"></textarea>
+            </label>
+            <label for="project_fund" class="field">
+                <span class="label-text">Funding needed:</span>
+                <input type="text" id="project_fund" name="project_fund">
+            </label>
+            <label for="project_milestones" class="field">
+                <span class="label-text">Milestones:</span>
+                <input type="text" id="project_milestones" name="project_milestones">
+            </label>
+            <label class="field">
+                <span></span>
+                <button type="submit" id="create_button">Create Project</button>
+            </label>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

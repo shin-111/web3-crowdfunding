@@ -1,4 +1,8 @@
 $pink: rgb(224, 60, 167);
+$purple: #9626f9;
+$blue: #2e7cdf;
+
+// All pages
 
 html {
     font-size: 100%;
@@ -11,7 +15,7 @@ body {
     height: 100%;
     line-height: 1.15;
     font-family: 'Roboto Mono', monospace;
-    background-color: $pink;
+    background-color: $purple;
 }
 
 
@@ -72,23 +76,113 @@ body {
         font-family: 'Roboto Mono', monospace;
         font-size: 1rem;
         background-color: white;
-        color: $pink;
+        color: $purple;
         border: 0.05rem solid black;
         &:hover {
             cursor: pointer;
             border: 0.05rem solid white;
         }
     }
-
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin: 1rem 0;
+        padding: 0;
+        font-size: 1.5rem;
+        color: white;
+    }
+}
+
+// Index page
 
 .featured_projects {
+    .featured_project_1 {
+        background-image: url('./Banner_1.jpg');
+        // background-image: linear-gradient(to bottom, rgba(195, 0, 255, 0.10), black), url('');
+    }
+    .featured_project_2 {
+        background-image: url('./Banner_2.png');
+        // background-image: linear-gradient(to bottom, rgba(195, 0, 255, 0.10), black), url('');
+    }
+    .featured_project_3 {
+        background-image: url('./Banner_3.jpg');
+        // background-image: linear-gradient(to bottom, rgba(195, 0, 255, 0.10), black), url('');
+    }
+    .featured_project_4 {
+        background-image: url('./Banner_4.jpg');
+        // background-image: linear-gradient(to bottom, rgba(195, 0, 255, 0.10), black), url('');
+    }
+    .featured_project {
+        height: 20rem;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .text {
+            h2 {
+                margin: 0 0 1rem 0;
+                padding: 0;
+                font-size: 2rem;
+                color: white;
+            }
+            p {
+                margin: 1rem 0;
+                padding: 0;
+                font-size: 1.5rem;
+                color: white;
+            }
+        }
+        .button {
+            button {
+                margin: 1rem 1rem;
+                font-family: 'Roboto Mono', monospace;
+                font-size: 1rem;
+                background-color: white;
+                color: $purple;
+                border: 0.05rem solid black;
+                &:hover {
+                    cursor: pointer;
+                    border: 0.05rem solid white;
+                }
+            }
+        }
+    }
+}
+
+.buttons {
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        margin: 1rem 1rem;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 1rem;
+        background-color: white;
+        color: $purple;
+        border: 0.05rem solid black;
+        &:hover {
+            cursor: pointer;
+            border: 0.05rem solid white;
+        }
+    }
+}
+
+// View page
+
+.all_projects {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 1rem 10rem;
-    .featured_project {
+    .each_project {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -103,13 +197,15 @@ body {
             border: 0.05rem solid black;;
         }
         h2 {
-            color: $pink;
+            color: $purple;
         }
         p {
-            color: $pink;
+            color: $purple;
         }
     }
 }
+
+// Create page
 
 .create_new_project {
     margin: 10rem 10rem;
@@ -149,19 +245,19 @@ body {
                     text-align: right;
                     font-weight: normal;  
                     color: white;
-                    color: $pink;
+                    color: $purple;
                 }
                 input {
                     font-family: 'Roboto Mono', monospace;
                     font-weight: normal;  
                     color: white;
-                    background-color: $pink;
+                    background-color: $purple;
                 }
                 textarea {
                     font-family: 'Roboto Mono', monospace;
                     height: 15rem;
                     font-weight: normal;  
-                    background-color: $pink;
+                    background-color: $purple;
                     color: white;
                 }
                 button {
@@ -182,6 +278,7 @@ body {
 }
 
 
+// Fund page
 
 
 

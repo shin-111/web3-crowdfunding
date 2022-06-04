@@ -10,7 +10,7 @@ body {
   height: 100%;
   line-height: 1.15;
   font-family: 'Roboto Mono', monospace;
-  background-color: #e03ca7;
+  background-color: #9626f9;
 }
 
 .nav {
@@ -90,7 +90,7 @@ body {
   font-family: 'Roboto Mono', monospace;
   font-size: 1rem;
   background-color: white;
-  color: #e03ca7;
+  color: #9626f9;
   border: 0.05rem solid black;
 }
 
@@ -99,7 +99,114 @@ body {
   border: 0.05rem solid white;
 }
 
-.featured_projects {
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  margin: 1rem 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.featured_projects .featured_project_1 {
+  background-image: url("./Banner_1.jpg");
+}
+
+.featured_projects .featured_project_2 {
+  background-image: url("./Banner_2.png");
+}
+
+.featured_projects .featured_project_3 {
+  background-image: url("./Banner_3.jpg");
+}
+
+.featured_projects .featured_project_4 {
+  background-image: url("./Banner_4.jpg");
+}
+
+.featured_projects .featured_project {
+  height: 20rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.featured_projects .featured_project .text h2 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: 2rem;
+  color: white;
+}
+
+.featured_projects .featured_project .text p {
+  margin: 1rem 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.featured_projects .featured_project .button button {
+  margin: 1rem 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  background-color: white;
+  color: #9626f9;
+  border: 0.05rem solid black;
+}
+
+.featured_projects .featured_project .button button:hover {
+  cursor: pointer;
+  border: 0.05rem solid white;
+}
+
+.buttons {
+  height: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttons button {
+  margin: 1rem 1rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  background-color: white;
+  color: #9626f9;
+  border: 0.05rem solid black;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+  border: 0.05rem solid white;
+}
+
+.all_projects {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -112,7 +219,7 @@ body {
   margin: 1rem 10rem;
 }
 
-.featured_projects .featured_project {
+.all_projects .each_project {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,18 +239,18 @@ body {
   padding: 1rem;
 }
 
-.featured_projects .featured_project img {
+.all_projects .each_project img {
   width: 100%;
   height: auto;
   border: 0.05rem solid black;
 }
 
-.featured_projects .featured_project h2 {
-  color: #e03ca7;
+.all_projects .each_project h2 {
+  color: #9626f9;
 }
 
-.featured_projects .featured_project p {
-  color: #e03ca7;
+.all_projects .each_project p {
+  color: #9626f9;
 }
 
 .create_new_project {
@@ -209,21 +316,21 @@ body {
   text-align: right;
   font-weight: normal;
   color: white;
-  color: #e03ca7;
+  color: #9626f9;
 }
 
 .create_new_project .form form .field input {
   font-family: 'Roboto Mono', monospace;
   font-weight: normal;
   color: white;
-  background-color: #e03ca7;
+  background-color: #9626f9;
 }
 
 .create_new_project .form form .field textarea {
   font-family: 'Roboto Mono', monospace;
   height: 15rem;
   font-weight: normal;
-  background-color: #e03ca7;
+  background-color: #9626f9;
   color: white;
 }
 

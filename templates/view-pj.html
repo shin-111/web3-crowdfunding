@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>View Projects</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="nav">
+    <a class="logo" href="/">W3Bstarter</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="">Projects</a>
+        <a href="">Portfolio</a>
+        <button class="connect_wallet_1">Connect Wallet</button>
+    </nav>
+</div>
+
+<div class="hero">
+    <h1>    
+        Create Projects, Get Funded!&#128526;
+    </h1>
+    <p>
+        Transparent & Secured Web3 Crowdfunding 
+    </p>
+    <button class="connect_wallet_2">Connect Wallet</button>
+</div>
+
+<div class="all_projects">
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Project_1.jpg') }}" alt="">
+        <h2>This is a project</h2>
+        <p>This is a super long description which can help people understand what this project is all about</p>
+    </div>
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Project_2.jpg') }}" alt="">
+        <h2>This is a project</h2>
+        <p>This is a super long description which can help people understand what this project is all about</p>
+    </div>
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Project_3.jpg') }}" alt="">
+        <h2>This is a project</h2>
+        <p>This is a super long description which can help people understand what this project is all about</p>
+    </div>
+</div>
+
+{% endblock %}
