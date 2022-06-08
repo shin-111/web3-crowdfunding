@@ -10,37 +10,65 @@
     <a class="logo" href="/">W3Bstarter</a>
     <nav>
         <a href="/">Home</a>
-        <a href="">Projects</a>
-        <a href="">Portfolio</a>
+        <a href="/view">Projects</a>
+        <a href="/create">Create</a>
         <button class="connect_wallet_1">Connect Wallet</button>
     </nav>
 </div>
 
-<div class="hero">
-    <h1>    
-        Create Projects, Get Funded!&#128526;
-    </h1>
+<div class="h2_container">
+    <h2>
+        Explore all projects
+    </h2>
     <p>
-        Transparent & Secured Web3 Crowdfunding 
+        Be supporters! Support with crypto directly to good projects
     </p>
-    <button class="connect_wallet_2">Connect Wallet</button>
 </div>
 
 <div class="all_projects">
+    {% for project in projects %}
+        <div class="each_project">
+            <img src="{{ url_for('static', filename='default.jpg') }}" alt="">
+            <h3>{{ project.project_name }}</h3>
+            <p>{{ project.project_description }}</p>
+            <button onclick="window.location.href='/project/{{ project.id }}'">Learn more</button>
+        </div>
+    {% endfor %}
     <div class="each_project">
-        <img src="{{ url_for('static', filename='Project_1.jpg') }}" alt="">
-        <h2>This is a project</h2>
-        <p>This is a super long description which can help people understand what this project is all about</p>
+        <img src="{{ url_for('static', filename='Banner_1.jpg') }}" alt="">
+        <h3>Save the ocean</h3>
+        <p>A non-profit project aims to reduce human's impact on the ocean ecosystem</p>
+        <button>Learn more</button>
     </div>
     <div class="each_project">
-        <img src="{{ url_for('static', filename='Project_2.jpg') }}" alt="">
-        <h2>This is a project</h2>
-        <p>This is a super long description which can help people understand what this project is all about</p>
+        <img src="{{ url_for('static', filename='Banner_2.jpg') }}" alt="">
+        <h3>Munich Meta Art Space</h3>
+        <p>The first NFT art space in Munich, bringing digital arts to the wealthy Munich residence</p>
+        <button>Learn more</button>
+    </div>
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Banner_4.jpg') }}" alt="">
+        <h3>V-CAR</h3>
+        <p>Travel like it's 2077 with neon and everything</p>
+        <button>Learn more</button>
+    </div>
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Project_1.jpg') }}" alt="">
+        <h3>Echo</h3>
+        <p>Sound system for your smart home, all in the palm of your hand</p>
+        <button>Learn more</button>
+    </div>
+    <div class="each_project">
+        <img src="{{ url_for('static', filename='Banner_3.jpg') }}" alt="">
+        <h3>Live, Laugh, Love</h3>
+        <p>A film about live, laugh, and love, featuring Jared Leto</p>
+        <button>Learn more</button>
     </div>
     <div class="each_project">
         <img src="{{ url_for('static', filename='Project_3.jpg') }}" alt="">
-        <h2>This is a project</h2>
-        <p>This is a super long description which can help people understand what this project is all about</p>
+        <h3>Block-Supply Chain</h3>
+        <p>Supply chain visibility powered by blockchain. The first mass B2B supply chain software on Ethereum</p>
+        <button>Learn more</button>
     </div>
 </div>
 

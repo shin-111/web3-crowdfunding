@@ -16,44 +16,36 @@
     </nav>
 </div>
 
-<div class="hero">
-    <h1>    
-        Create Projects, Get Funded!&#128526;
-    </h1>
+<div class="h2_container">
+    <h2>
+        Create project
+    </h2>
     <p>
-        Transparent & Secured Web3 Crowdfunding 
+        Create your project and get funded now!
     </p>
-    <button class="connect_wallet_2">Connect Wallet</button>
 </div>
 
-<div class="create_new_project">
-    <div class="title_container">
-        <h1>Create new project</h1>
-    </div>
+<div class="form_container">
     <div class="form">
-        <form method="post">
-            <label for="project_name" class="field">
-                <span class="label-text">Project name:</span>
-                <input type="text" id="project_name" name="project_name"> 
-            </label>
-            <label for="project_description" class="field">
-                <span class="label-text">Project description:</span>
-                <textarea name="project_description" id="project_description"></textarea>
-            </label>
-            <label for="project_fund" class="field">
-                <span class="label-text">Funding needed:</span>
-                <input type="text" id="project_fund" name="project_fund">
-            </label>
-            <label for="project_milestones" class="field">
-                <span class="label-text">Milestones:</span>
-                <input type="text" id="project_milestones" name="project_milestones">
-            </label>
-            <label class="field">
-                <span></span>
-                <button type="submit" id="create_button">Create Project</button>
-            </label>
+        <form method="post" id="create_form">
+            <label for="project_name" class="field"><span class="label-text">Project name:</span></label>
+            <input type="text" id="project_name" name="project_name"> 
+            
+            <label for="project_description" class="field"><span class="label-text">Project description:</span></label>
+            <textarea name="project_description" id="project_description"></textarea>
+            
+            <label for="project_fund" class="field"><span class="label-text">Funding needed (ETH):</span></label>
+            <input type="number" id="project_fund" name="project_fund">
+            
+            <label for="project_milestones" class="field"><span class="label-text">Milestones:</span></label>
+            <input type="text" id="project_milestones" name="project_milestones">
+            
+            <button type="submit" id="create_button">Create Project</button>
         </form>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="{{ url_for('static', filename='create-pj.js') }}" type="module"></script>
 
 {% endblock %}

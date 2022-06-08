@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Fund project</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="nav">
+    <a class="logo" href="/">W3Bstarter</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/view">Projects</a>
+        <a href="/create">Create</a>
+        <button class="connect_wallet_1">Connect Wallet</button>
+    </nav>
+</div>
+
+<div class="h2_container">
+    <h2>
+        {{ project.project_name }}
+    </h2>
+    <p>
+        View and fund {{ project.project_name }} right here!
+    </p>
+</div>
+
+<div class="single_project">
+    <div class="project_banner_container">
+        <img src="{{ url_for('static', filename='default.jpg') }}" alt="project banner" />
+    </div>
+    <div class="project_details_container">
+        <div class="col_1">
+            <h3 class="project_name" id="project_name_id">{{ project.project_name }}</h3>
+            <p>Description: {{ project.project_description }}</p>
+            <p>Funding needed: {{ project.project_ETH_needed }} ETH</p>
+        </div>
+        <div class="col_2">
+            <form method="post" id="fund_form">
+                <input type="number" id="amount_to_fund" name="amount" placeholder=" Amount to Fund (ETH)...">
+                <button type="submit" id="fund_button">Fund Project</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="{{ url_for('static', filename='single-pj.js') }}" type="module"></script>
+
+{% endblock %}

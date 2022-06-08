@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
     </style>
     {% block head %}{% endblock %}
 </head>
@@ -15,10 +15,11 @@
     {% endblock %}
     
     <footer>
-        <p>Made by Group 5</p>
+        <h5>Made by Group 5 &#128170;</h5>
+        <p>Özge Nur Yagli, Minh Tu, Shuo Liu, I-hsun Chien, and Johann Meffert</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="static/scripts.js" type="module"></script>
+    <script src="{{ url_for('static', filename='base.js') }}" type="module"></script>
 </body>
 </html>
