@@ -1,4 +1,5 @@
 import json
+import os
 from solcx import compile_standard, install_solc
 from web3 import Web3
 from dotenv import load_dotenv
@@ -38,10 +39,10 @@ bytecode = compiled_sol["contracts"]["web3.0-crowdfunding.sol"]["FundAndVote"]["
 abi = compiled_sol["contracts"]["web3.0-crowdfunding.sol"]["FundAndVote"]["abi"]
 
 # Connect to Ganache
-w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
-chain_id = 1337
-my_address = "0x7A835D1A5DCa5F6Ae1eFaF2F90723b1072eF4c2f"
-private_key = "0xba6db37132d23bae334b4314825be2f1e569a7ed37bed1d6a37f94320a70215d"
+w3 = Web3(Web3.HTTPProvider("https://rinkeby.infura.io/v3/6c39cae3872d48d5a8da3fcf73adb7ff"))
+chain_id = 4
+my_address = "0xD57ece282167b0741f0a40CAc8944D89E5a7C88A"
+private_key = os.getenv("PRIVATE_KEY")
 
 # Deploy the contract
 Web3Crowdfunding = w3.eth.contract(abi=abi, bytecode=bytecode)

@@ -6,9 +6,10 @@ from sqlalchemy.sql import func
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
-    basedir, "database.db"
-)
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(
+#     basedir, "database.db"
+# )
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://mmmrwmdarlwkph:022dd5548597f323078a0f1b52ef4b4e53749fc1911878212a01953521822d1b@ec2-3-224-8-189.compute-1.amazonaws.com:5432/da6rvc5dkgligk"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
